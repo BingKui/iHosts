@@ -1,0 +1,23 @@
+{
+    "version": "v1.0.0",
+    "notes": "更新版本",
+    "pub_date": "2022年08月23日17:05:11",
+    "platforms": {
+        "darwin-x86_64": {
+            "signature": "",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.app.tar.gz"
+        },
+        "darwin-aarch64": {
+            "signature": "",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/silicon/app.app.tar.gz"
+        },
+        "linux-x86_64": {
+            "signature": "",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.AppImage.tar.gz"
+        },
+        "windows-x86_64": {
+            "signature": "",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.x64.msi.zip"
+        }
+    }
+}

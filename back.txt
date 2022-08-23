@@ -1,0 +1,114 @@
+# Local
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+
+
+
+##
+# Name: Lazada
+#
+# iHost Content Start
+##
+
+# lazada
+127.0.0.1 dev.pre.lazada.com.my
+127.0.0.1 dev.pre.lazada.com.th
+0.0.0.0 dev.pre.lazada.com.my
+0.0.0.0 dev.pre.lazada.com.th
+47.89.75.212 pre.lazada.com.my
+140.205.215.168 pre-p.lazada.sg
+140.205.215.168 pre-p.lazada.com.my
+
+47.89.75.212  p.lazada.com.my
+
+##
+# Name: Lazada
+#
+# iHost Content End
+##
+
+##
+# Name: 店小蜜
+#
+# iHost Content Start
+##
+
+# 新零售
+# 店小蜜本地日常
+127.0.0.1 dev.alphax.daily.taobao.net
+
+
+# 新零售本地日常
+127.0.0.1 dev.daily.taobao.net
+
+
+# 店小蜜本地预发 # 新零售本地预发
+127.0.0.1 dev.alphax.taobao.com
+
+127.0.0.1 dev.alphax.daily.taobao.net
+127.0.0.1 dev.pre-alphax.taobao.com
+
+# 店小蜜直接预发
+140.205.215.168 pre-alphax.taobao.com
+
+# 新零售直接预发
+140.205.215.168 pre-retail.alibeebot.taobao.com
+140.205.215.168 pre-api-xspace.taobao.com
+
+127.0.0.1 dev.taobao.com
+
+140.205.215.168 pre-babylon.alibaba-inc.com
+
+#nlu项目
+127.0.0.1 dev.alimebot.daily.taobao.net
+
+# New One
+30.7.224.38 dev.alimebot.daily.taobao.net
+
+127.0.0.1 dev.pre-alimebot.taobao.com
+127.0.0.1 dev.alimebot.daily.taobao.net
+
+# gcdn
+106.11.210.201 g.alicdn.com
+106.11.210.44 g.alicdn.com
+106.11.209.153 g.alicdn.com
+10.101.73.189  g.tbcdn.cn
+
+140.205.215.168 pre-abmate.alibaba-inc.com
+140.205.215.168 pre-dianxiaomicaimi.taobao.com
+
+127.0.0.1 dev.wapa.taobao.com
+127.0.0.1 dev.m.taobao.com
+
+# 140.205.215.168 pre-air.taobao.com
+
+# 采蜜
+140.205.215.168 pre-caimi.dianxiaomi.taobao.com
+140.205.215.168 pre-dianxiaomicaimi.taobao.com
+
+127.0.0.1 dev.alibaba-inc.com
+
+
+# AiSmart
+# 127.0.0.1 dev.alibaba-inc.com
+127.0.0.1 dev.pre-aismart.alibaba-inc.com
+# 127.0.0.1 daily-aismart.alibaba-inc.com
+
+127.0.0.1 dev.pre.lazada.com.my
+
+47.89.75.212 pre.lazada.com.my
+
+
+
+##
+# Name: 店小蜜
+#
+# iHost Content End
+##

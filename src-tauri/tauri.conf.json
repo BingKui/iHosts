@@ -1,0 +1,89 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "yarn build",
+    "beforeDevCommand": "yarn dev",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "iHosts",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true,
+      "os": {
+        "all": true
+      },
+      "shell": {
+        "all": true,
+        "execute": true,
+        "open": true,
+        "scope": [{
+          "name": "networksetup",
+          "cmd": "networksetup",
+          "args": true
+        }],
+        "sidecar": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/icon.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "cn.uiseed.ihosts",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": true,
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI2QjM5NUYyMEM1MTE2QzQKUldURUZsRU04cFd6SnI1cEJ1VlJ6dUZBelFpd1YwRjlmcTdkZTJPZUVKRno1SVpmRlRJbjNFNEoK",
+      "endpoints": [
+        "https://oss.uiseed.cn/app/iHost/{{target}}/{{current_version}}"
+      ]
+    },
+    "systemTray": {
+      "iconPath": "icons/tray.png",
+      "iconAsTemplate": true
+    },
+    "macOSPrivateApi": true,
+    "windows": [{
+      "fullscreen": false,
+      "height": 700,
+      "resizable": false,
+      "transparent": true,
+      "title": "iHost",
+      "width": 900,
+      "decorations": false,
+      "visible": false
+    }]
+  }
+}
