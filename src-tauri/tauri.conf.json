@@ -64,11 +64,10 @@
     },
     "updater": {
       "active": true,
-      "dialog": true,
+      "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI2QjM5NUYyMEM1MTE2QzQKUldURUZsRU04cFd6SnI1cEJ1VlJ6dUZBelFpd1YwRjlmcTdkZTJPZUVKRno1SVpmRlRJbjNFNEoK",
       "endpoints": [
-        "https://github.com/BingKui/iHosts/blob/main/updater.json",
-        "https://oss.uiseed.cn/app/iHost/{{target}}/{{current_version}}"
+        "https://oss.uiseed.cn/app/iHost/latest.json"
       ]
     },
     "systemTray": {

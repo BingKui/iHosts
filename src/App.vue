@@ -19,6 +19,9 @@ import { os } from '@tauri-apps/api';
 import { WebviewWindow } from '@tauri-apps/api/window';
 import { emit, listen } from '@tauri-apps/api/event'
 import { useHostStore } from './stores/host';
+import { checkUpdate, installUpdate } from '@tauri-apps/api/updater'
+import { relaunch } from '@tauri-apps/api/process';
+
 onMounted(async () => {
   const appSetting = useSystemStore();
   await appSetting.getSysSetting();
@@ -43,6 +46,20 @@ onMounted(async () => {
     const host = useHostStore();
     await host.updateHostUsed(id, !used);
   })
+  // 检查更新
+  try {
+    const { shouldUpdate, manifest } = await checkUpdate();
+    console.log('检查更新', shouldUpdate);
+    if (shouldUpdate) {
+      console.log('manifest ->', manifest);
+      // display dialog
+      await installUpdate()
+      // install complete, restart app
+      await relaunch()
+    }
+  } catch (error) {
+    console.error('错误信息 ->', error)
+  }
 });
 </script>
 

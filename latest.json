@@ -1,0 +1,23 @@
+{
+    "version": "v1.0.1",
+    "notes": "更新版本测试",
+    "pub_date": "2022-06-22T19:25:57Z",
+    "platforms": {
+        "darwin-x86_64": {
+            "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5RXU4d0Rob3paa1Z5MmdVRHJsTWNhSGIxTG9xVkFueWVCeStVMTRDVjExRUFBQkFBQUFBQUFBQUFBQUlBQUFBQTd6T3FhcGRuK1d4L2dPOU13RDdxYWpoNEdtUjlpb2FrQ0NSVWdqUEZ3MDVuMXhPN3lMN0FwMXBXTGFyOEFaSUN0WWZRaGdYN0lveW13SkpTZGR5aU9yc1NHWUdaeUhTY1JDUkR3YzR5YVJOUTZpVVYrR0tOQ2xTanMrbTZpTWVVMkd0NjNoY09LNjg9Cg==",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.app.tar.gz"
+        },
+        "darwin-aarch64": {
+            "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5RXU4d0Rob3paa1Z5MmdVRHJsTWNhSGIxTG9xVkFueWVCeStVMTRDVjExRUFBQkFBQUFBQUFBQUFBQUlBQUFBQTd6T3FhcGRuK1d4L2dPOU13RDdxYWpoNEdtUjlpb2FrQ0NSVWdqUEZ3MDVuMXhPN3lMN0FwMXBXTGFyOEFaSUN0WWZRaGdYN0lveW13SkpTZGR5aU9yc1NHWUdaeUhTY1JDUkR3YzR5YVJOUTZpVVYrR0tOQ2xTanMrbTZpTWVVMkd0NjNoY09LNjg9Cg==",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/silicon/app.app.tar.gz"
+        },
+        "linux-x86_64": {
+            "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5RXU4d0Rob3paa1Z5MmdVRHJsTWNhSGIxTG9xVkFueWVCeStVMTRDVjExRUFBQkFBQUFBQUFBQUFBQUlBQUFBQTd6T3FhcGRuK1d4L2dPOU13RDdxYWpoNEdtUjlpb2FrQ0NSVWdqUEZ3MDVuMXhPN3lMN0FwMXBXTGFyOEFaSUN0WWZRaGdYN0lveW13SkpTZGR5aU9yc1NHWUdaeUhTY1JDUkR3YzR5YVJOUTZpVVYrR0tOQ2xTanMrbTZpTWVVMkd0NjNoY09LNjg9Cg==",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.AppImage.tar.gz"
+        },
+        "windows-x86_64": {
+            "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5RXU4d0Rob3paa1Z5MmdVRHJsTWNhSGIxTG9xVkFueWVCeStVMTRDVjExRUFBQkFBQUFBQUFBQUFBQUlBQUFBQTd6T3FhcGRuK1d4L2dPOU13RDdxYWpoNEdtUjlpb2FrQ0NSVWdqUEZ3MDVuMXhPN3lMN0FwMXBXTGFyOEFaSUN0WWZRaGdYN0lveW13SkpTZGR5aU9yc1NHWUdaeUhTY1JDUkR3YzR5YVJOUTZpVVYrR0tOQ2xTanMrbTZpTWVVMkd0NjNoY09LNjg9Cg==",
+            "url": "https://github.com/lemarier/tauri-test/releases/download/v1.0.0/app.x64.msi.zip"
+        }
+    }
+}
