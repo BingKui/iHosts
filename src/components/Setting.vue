@@ -49,10 +49,10 @@
             <div class="setting-item">
                 <div class="font-size">软件更新</div>
                 <div class="setting-content">
-                    <el-button size="small" type="primary" @click="handleCheckUpdate">检查更新</el-button>
+                    <Updater :haveButton="true" :isAuto="false" />
+                    <!-- <el-button size="small" type="primary" @click="handleCheckUpdate">检查更新</el-button> -->
                 </div>
             </div>
-            <el-button size="small" type="primary" @click="handleRestartWifi">重启wifi</el-button>
         </div>
     </el-drawer>
 </template>
@@ -62,7 +62,6 @@ import { ref } from 'vue';
 import { SettingTwo } from '@icon-park/vue-next';
 import { useSystemStore } from '../stores/sys';
 import { storeToRefs } from 'pinia';
-console.log('setting');
 const drawer = ref(false);
 const sys = useSystemStore();
 const { auto_start, auto_restart_wifi, auto_save, auto_update, dock_show } = storeToRefs(sys);
@@ -72,10 +71,6 @@ const openSetting = () => {
 }
 const closeSetting = () => {
     drawer.value = false;
-}
-
-const handleRestartWifi = async () => {
-    await sys.restartWifi();
 }
 
 const handleStartAction = (flag: boolean) => handleAction(flag, 'auto_start');

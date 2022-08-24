@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
@@ -27,5 +28,6 @@ declare module '@vue/runtime-core' {
     MouseRight: typeof import('./src/components/MouseRight.vue')['default']
     Problem: typeof import('./src/components/Problem.vue')['default']
     Setting: typeof import('./src/components/Setting.vue')['default']
+    Updater: typeof import('./src/components/Updater.vue')['default']
   }
 }
