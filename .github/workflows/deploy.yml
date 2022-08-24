@@ -1,4 +1,4 @@
-name: "updater publish"
+name: "Deploy Test"
 
 on:
   push:
@@ -9,7 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
+        # platform: [macos-latest, ubuntu-latest, windows-latest]
+        platform: [macos-latest]
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -17,7 +18,8 @@ jobs:
       - name: Minio Perfect Deploy
         # You may pin to the exact commit or the version.
         # uses: mamal72/minio-perfect-deploy-action@1f4fafcee58750ebe8f726d33a55d926d2224065
-        uses: mamal72/minio-perfect-deploy-action@v1
+        # uses: mamal72/minio-perfect-deploy-action@v1
+        uses: lovellfelix/minio-deploy-action@v1
         with:
           endpoint: ${{ secrets.MINIO_ENDPOINT }}
           access_key: ${{ secrets.MINIO_ACCESS_KEY }}
