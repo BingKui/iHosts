@@ -1,17 +1,17 @@
-name: "Deploy Test"
+name: Deploy
 
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
-  publish-tauri:
+  release:
     strategy:
       fail-fast: false
       matrix:
         # platform: [macos-latest, ubuntu-latest, windows-latest]
         platform: [macos-latest]
-
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
