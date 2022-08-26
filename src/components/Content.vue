@@ -17,12 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, Ref, ref, watch } from 'vue';
+import { onMounted, Ref, ref, watch, getCurrentInstance } from 'vue';
 import { Codemirror } from 'vue-codemirror';
 import { basicSetup } from 'codemirror'
 import { EditorView, keymap } from '@codemirror/view'
-import { lineComment, standardKeymap, defaultKeymap } from '@codemirror/commands';
-// import { oneDark } from '@codemirror/theme-one-dark'
 import { python } from '@codemirror/lang-python';
 import { search } from '@codemirror/search';
 import { useHostStore } from '../stores/host';
@@ -35,8 +33,6 @@ const host = useHostStore();
 const setting = useSystemStore();
 const { isCurrent, currentContent, hostInfo } = storeToRefs(host);
 
-console.log(python());
-// console.log(search());
 const keyMap = keymap.of([{
     key: 'Cmd-s',
     mac: 'Cmd-s',

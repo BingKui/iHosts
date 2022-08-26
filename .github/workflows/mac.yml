@@ -1,0 +1,79 @@
+name: Mac Deploy
+
+on:
+  push:
+    tags:
+      - "app-v*"
+  workflow_dispatch:
+
+jobs:
+  release:
+    strategy:
+      fail-fast: false
+      matrix:
+        # platform: [macos-latest, ubuntu-latest, windows-latest]
+        platform: [macos-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v2
+      - name: 设置 Node 环境
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Linux 环境处理
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+      - name: 安装依赖
+        run: yarn
+      - name: Mac 打包
+        if: matrix.platform == 'macos-latest'
+        run: |
+          rustup target add x86_64-apple-darwin
+          rustup target add aarch64-apple-darwin
+          yarn tauri build --target x86_64-apple-darwin
+          yarn tauri build --target aarch64-apple-darwin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+      - name: 生成版本文件
+        run: |
+          node ./updater.js
+      - name: Mac 环境上传 OSS
+        if: matrix.platform == 'macos-latest'
+        run: |
+          brew install minio/stable/mc
+          mc --help
+          mc alias set deploy $MINIO_ENDPOINT $MINIO_ACCESS_KEY $MINIO_SECRET_KEY --api S3v4
+          mc cp $SOURCE_DIR "deploy/$MINIO_BUCKET$TARGET_DIR"
+          mc cp $SOURCE_DMG_DIR "deploy/$MINIO_BUCKET$TARGET_DIR"
+          mc cp $SOURCE_DIR_ARM "deploy/$MINIO_BUCKET$TARGET_DIR_ARM"
+          mc cp $SOURCE_DMG_DIR_ARM "deploy/$MINIO_BUCKET$TARGET_DIR_ARM"
+          mc cp $VERSION_DIR "deploy/$MINIO_BUCKET/iHosts"
+        env:
+          VERSION_DIR: "./latest.json"
+          SOURCE_DMG_DIR: "src-tauri/target/x86_64-*/release/bundle/dmg/iHosts_*.dmg"
+          SOURCE_DMG_DIR_ARM: "src-tauri/target/aarch64-*/release/bundle/dmg/iHosts_*.dmg"
+          SOURCE_DIR: "src-tauri/target/x86_64-*/release/bundle/macos/iHosts.*.tar.*"
+          SOURCE_DIR_ARM: "src-tauri/target/aarch64-*/release/bundle/macos/iHosts.*.tar.*"
+          TARGET_DIR: "/iHosts/x86"
+          TARGET_DIR_ARM: "/iHosts/arm"
+          MINIO_BUCKET: ${{ secrets.MINIO_BUCKET }}
+          MINIO_ENDPOINT: ${{ secrets.MINIO_ENDPOINT }}
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+      - name: 上传 Release - Mac
+        uses: actions/upload-artifact@v2
+        if: matrix.platform == 'macos-latest'
+        with:
+          name: macos-updater-artifacts
+          path: ./target/*/release/bundle/dmg/iHosts_*.dmg
+      - name: 创建 Release 版本
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "src-tauri/target/*/release/bundle/dmg/iHosts_*.dmg,src-tauri/target/*/release/bundle/macos/iHosts.*.tar.*"
+          token: ${{ secrets.GITHUB_TOKEN }}

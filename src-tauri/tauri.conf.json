@@ -67,7 +67,7 @@
       "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI2QjM5NUYyMEM1MTE2QzQKUldURUZsRU04cFd6SnI1cEJ1VlJ6dUZBelFpd1YwRjlmcTdkZTJPZUVKRno1SVpmRlRJbjNFNEoK",
       "endpoints": [
-        "https://oss.uiseed.cn/app/iHost/latest.json"
+        "https://oss.uiseed.cn/app/iHosts/latest.json"
       ]
     },
     "systemTray": {
@@ -80,7 +80,7 @@
       "height": 700,
       "resizable": false,
       "transparent": true,
-      "title": "iHost",
+      "title": "iHosts",
       "width": 900,
       "decorations": false,
       "visible": false
