@@ -128,11 +128,12 @@ dependencies = [
 
 [[package]]
 name = "auto-launch"
-version = "0.2.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f0ab475f9b1049a9d4e9c83f45ff27ec3bce4a6cb8e58e7f29030f8992af8c5"
+checksum = "5904a4d734f0235edf29aab320a14899f3e090446e594ff96508a6215f76f89c"
 dependencies = [
  "dirs",
+ "thiserror",
  "winreg",
 ]
 

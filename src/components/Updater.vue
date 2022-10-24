@@ -1,5 +1,4 @@
 <template>
-    <el-button v-if="haveButton" size="small" type="primary" @click="handleCheckUpdate">检查更新</el-button>
     <el-dialog v-model="updateVisible" title="版本更新" width="40%" center :close-on-click-modal="false">
         <div class="font-size text-title">版本：<span class="font-weight-bold">v{{ updateInfo?.version }}</span></div>
         <div class="font-size text-title margin-top">发布时间：<span class="font-weight-bold">{{ updateInfo?.date }}</span>
@@ -25,24 +24,20 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, toRefs, h } from 'vue';
+import { onMounted, ref } from 'vue';
 import { checkUpdate, installUpdate, UpdateManifest } from '@tauri-apps/api/updater'
 import { relaunch } from '@tauri-apps/api/process';
 import { listen } from '@tauri-apps/api/event'
 import { ElNotification } from 'element-plus';
-
-const props = defineProps<{ haveButton: boolean, isAuto: boolean }>();
-const { haveButton, isAuto } = toRefs(props);
 
 const updateVisible = ref(false);
 const installVisible = ref(false);
 const updateInfo = ref<UpdateManifest | undefined>();
 
 onMounted(async () => {
-    console.log('是否自动更新 -> ', isAuto.value);
-    if (isAuto.value) {
+    listen('update-action', async () => {
         await handleCheckUpdate();
-    }
+    });
     listen('tauri://update-status', (res: { payload: { status: string } }) => {
         const { status } = res.payload;
         switch(status) {

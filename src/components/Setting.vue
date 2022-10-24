@@ -27,30 +27,29 @@
                     <el-switch :width="30" :value="auto_save" @change="handleSaveAction" />
                 </div>
             </div>
+            <!-- <div class="setting-item">
+                <div class="font-size">Dock显示(Mac)</div>
+                <div class="setting-content">
+                    <el-switch :width="30" :value="dock_show" @change="handleDockAction" />
+                </div>
+            </div> -->
             <div class="setting-item">
                 <div class="font-size">自动检查更新</div>
                 <div class="setting-content">
                     <el-switch :width="30" :value="auto_update" @change="handleUpdateAction" />
                 </div>
             </div>
-            <div class="setting-item">
-                <div class="font-size">Dock显示(Mac)</div>
-                <div class="setting-content">
-                    <el-switch :width="30" :value="dock_show" @change="handleDockAction" />
-                </div>
-            </div>
-            <div class="setting-item">
+            <!-- <div class="setting-item">
                 <div class="font-size">快捷键</div>
                 <div class="setting-content text-sub font-size text-right">
                     <div class="short-item">Mac: Shift+Cmd+E</div>
                     <div class="short-item">Windows&Linux: Ctrl+Shift+E</div>
                 </div>
-            </div>
+            </div> -->
             <div class="setting-item">
                 <div class="font-size">软件更新</div>
                 <div class="setting-content">
-                    <Updater :haveButton="true" :isAuto="false" />
-                    <!-- <el-button size="small" type="primary" @click="handleCheckUpdate">检查更新</el-button> -->
+                    <el-button size="small" type="primary" @click="handleCheckUpdate">检查更新</el-button>
                 </div>
             </div>
         </div>
@@ -62,6 +61,7 @@ import { ref } from 'vue';
 import { SettingTwo } from '@icon-park/vue-next';
 import { useSystemStore } from '../stores/sys';
 import { storeToRefs } from 'pinia';
+import { emit } from '@tauri-apps/api/event';
 const drawer = ref(false);
 const sys = useSystemStore();
 const { auto_start, auto_restart_wifi, auto_save, auto_update, dock_show } = storeToRefs(sys);
@@ -79,7 +79,9 @@ const handleSaveAction = (flag: boolean) => handleAction(flag, 'auto_save');
 const handleUpdateAction = (flag: boolean) => handleAction(flag, 'auto_update');
 const handleDockAction = (flag: boolean) => handleAction(flag, 'dock_show');
 
-const handleCheckUpdate = () => {};
+const handleCheckUpdate = () => {
+    emit('update-action');
+};
 
 const handleAction = async (flag: boolean, settingKey: string) => {
     const info = {

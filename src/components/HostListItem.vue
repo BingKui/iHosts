@@ -1,6 +1,6 @@
 <template>
     <div :class="`v-host-list-item ${active ? 'active' : ''}`" @click="handleActive">
-        <el-input v-if="isEdit" ref="edit" size="small" class="item-input font-size" placeholder="输入名称" :value="inputValue"
+        <el-input v-if="isEdit" ref="edit" size="small" class="item-input font-size" placeholder="输入名称" v-model="inputValue"
             :maxlength="15" @input="handleInput" @change="handleChange" @blur="handleBlur" />
         <div v-else @contextmenu="openContextMenu" class="item-content flex-row-between">
             <div class="font-size flex-item-one">{{ item.name }}</div>
@@ -42,10 +42,11 @@ const handleInput = (value: string) => {
     console.log('输入变化', value);
     inputValue.value = value;
 };
-const handleChange = (value: string) => {
+const handleChange = async (value: string) => {
     isEdit.value = false;
     if (!value) return;
     // 修改名称
+    await host.updateHostName(item.value.id, inputValue.value);
 };
 const handleBlur = () => {
     isEdit.value = false;

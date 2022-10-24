@@ -9,7 +9,7 @@
       <Content />
     </el-main>
   </el-container>
-  <Updater :isAuto="auto_update" :haveButton="false" />
+  <Updater />
 </template>
 
 <script setup lang="ts">
@@ -47,6 +47,9 @@ onMounted(async () => {
     const host = useHostStore();
     await host.updateHostUsed(id, !used);
   })
+  if (auto_update.value) {
+    emit('update-action');
+  }
 });
 </script>
 

@@ -7,7 +7,7 @@ mod sys;
 
 use std::path::Path;
 
-use auto_launch::AutoLaunch;
+use auto_launch::AutoLaunchBuilder;
 use fs_err as fs;
 use host::{HostApp, HostItem};
 use sys::{SysApp, SysInfo};
@@ -117,17 +117,20 @@ fn deal_setting(app_handle: &AppHandle) {
   println!("app 名字为 -> {:?}", app_name);
   println!("app 地址为 -> {:?}", target_path);
   #[cfg(target_os = "macos")]
-  let auto = AutoLaunch::new(&app_name, &target_path, true, true);
+  let auto = AutoLaunchBuilder::new()
+    .set_app_name(&app_name)
+    .set_app_path(&target_path)
+    .set_use_launch_agent(true)
+    .build()
+    .unwrap();
   if sys_setting.auto_start {
     // enable the auto launch
-    if auto.enable().is_ok() {
-      auto.is_enabled().unwrap();
-    }
+    auto.enable().unwrap();
+    auto.is_enabled().unwrap();
   } else {
     // disable the auto launch
-    if auto.disable().is_ok() {
-      auto.is_enabled().unwrap();
-    }
+    auto.disable().unwrap();
+    auto.is_enabled().unwrap();
   }
 }
 
@@ -154,7 +157,7 @@ fn deal_tray(app_handle: &AppHandle) {
   let app_name = app_handle.package_info().name.to_string();
   let mut open_title = "打开 ".to_string();
   open_title.push_str(&app_name);
-  let mut exit_title = "打开 ".to_string();
+  let mut exit_title = "退出 ".to_string();
   exit_title.push_str(&app_name);
   let open = CustomMenuItem::new("open".to_string(), open_title);
   let list_title = CustomMenuItem::new("list_title".to_string(), "Host 列表").disabled();
