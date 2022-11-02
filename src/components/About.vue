@@ -10,8 +10,8 @@
         <div class="about-container flex-column-center padding-all">
             <img src="../assets/appicon.png" width="80" height="80" alt="" />
             <div class="name font-size-28 margin-v font-weight-bold">{{ name }}</div>
-            <div class="version font-size margin-bottom-sm">Version. v{{ version }} (v{{tauriVersion}})</div>
-            <div class="copy-info font-size-sm">Copyright © 2022 {{ author }}. All rights reserved.</div>
+            <div class="version font-size margin-bottom-sm">版本. v{{ version }} (内核版本: v{{tauriVersion}})</div>
+            <div class="copy-info font-size-sm">Copyright © 2022 {{ author }} 保留所有权利。</div>
             <Problem />
         </div>
     </el-drawer>

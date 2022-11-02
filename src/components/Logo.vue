@@ -1,7 +1,7 @@
 <template>
     <div class="v-logo flex-column-center" data-tauri-drag-region>
         <div class="logo" data-tauri-drag-region :style="`background-image: url(${logoSrc});`" />
-        <div class="name" data-tauri-drag-region>iHosts</div>
+        <div class="name" data-tauri-drag-region>iHost</div>
     </div>
 </template>
 

@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "iHosts",
+    "productName": "iHost",
     "version": "1.0.0"
   },
   "tauri": {
@@ -31,7 +31,7 @@
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
-      "copyright": "",
+      "copyright": "Copyright © 2022 康兵奎",
       "deb": {
         "depends": []
       },
@@ -41,17 +41,17 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "cn.uiseed.ihosts",
+      "identifier": "cn.uiseed.ihost",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
         "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
+        "providerShortName": "康兵奎",
+        "signingIdentity": "Apple Distribution: Bingkui Kang (N8CP79P49X)"
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "好用的中文host文件内容管理工具。",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -63,24 +63,19 @@
       "csp": null
     },
     "updater": {
-      "active": true,
-      "dialog": false,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI2QjM5NUYyMEM1MTE2QzQKUldURUZsRU04cFd6SnI1cEJ1VlJ6dUZBelFpd1YwRjlmcTdkZTJPZUVKRno1SVpmRlRJbjNFNEoK",
-      "endpoints": [
-        "https://oss.uiseed.cn/app/iHosts/latest.json"
-      ]
+      "active": false
     },
     "systemTray": {
       "iconPath": "icons/tray.png",
       "iconAsTemplate": true
     },
-    "macOSPrivateApi": true,
+    "macOSPrivateApi": false,
     "windows": [{
       "fullscreen": false,
       "height": 700,
       "resizable": false,
       "transparent": true,
-      "title": "iHosts",
+      "title": "iHost",
       "width": 900,
       "decorations": false,
       "visible": false
