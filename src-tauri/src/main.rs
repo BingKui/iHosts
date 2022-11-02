@@ -116,22 +116,23 @@ fn deal_setting(app_handle: &AppHandle) {
   target_path.push_str(".app");
   println!("app 名字为 -> {:?}", app_name);
   println!("app 地址为 -> {:?}", target_path);
-  #[cfg(target_os = "macos")]
+  // #[cfg(target_os = "macos")]
   let auto = AutoLaunchBuilder::new()
     .set_app_name(&app_name)
     .set_app_path(&target_path)
-    .set_use_launch_agent(true)
+    .set_use_launch_agent(false)
     .build()
     .unwrap();
   if sys_setting.auto_start {
     // enable the auto launch
-    auto.enable().unwrap();
+    auto.enable().is_ok();
     auto.is_enabled().unwrap();
   } else {
     // disable the auto launch
-    auto.disable().unwrap();
+    auto.disable().is_ok();
     auto.is_enabled().unwrap();
   }
+  println!("开始自启动 -> {:?}", auto.is_enabled());
 }
 
 fn back_host(app_handle: &AppHandle) {
