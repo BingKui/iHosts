@@ -37,9 +37,11 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/icon.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/32x32.png",
+				"icons/128x128.png",
+				"icons/128x128@2x.png",
+				"icons/icon.icns",
+				"icons/icon.ico"
       ],
       "identifier": "cn.uiseed.ihost",
       "longDescription": "",
@@ -48,7 +50,7 @@
         "exceptionDomain": "",
         "frameworks": [],
         "providerShortName": "康兵奎",
-        "signingIdentity": "Apple Distribution: Bingkui Kang (N8CP79P49X)"
+        "signingIdentity": "3rd Party Mac Developer Application: Bingkui Kang (N8CP79P49X)"
       },
       "resources": [],
       "shortDescription": "好用的中文host文件内容管理工具。",
@@ -69,7 +71,7 @@
       "iconPath": "icons/tray.png",
       "iconAsTemplate": true
     },
-    "macOSPrivateApi": false,
+    "macOSPrivateApi": true,
     "windows": [{
       "fullscreen": false,
       "height": 700,
